@@ -86,7 +86,7 @@ class ProjectAgent:
             pickle.dump(self.Qvalue, f)
 
     def load(self):
-        with open("model.pkl", "rb") as f:
+        with open("src/model.pkl", "rb") as f:
             self.Qvalue = pickle.load(f)
 
 if __name__ == "__main__":
