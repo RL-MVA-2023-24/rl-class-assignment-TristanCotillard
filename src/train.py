@@ -76,9 +76,10 @@ def collect_samples(env, horizon, disable_tqdm=False, print_done_states=False):
 class ProjectAgent:
     def __init__(self, Qvalue=None) -> None:
         self.Qvalue = Qvalue
+        self.n_actions = 4
 
     def act(self, observation, use_random=False):
-        action = greedy_action(self.Qvalue, observation, nb_actions=1)
+        action = greedy_action(self.Qvalue, observation, nb_actions=self.n_actions)
         return action
 
     def save(self, path):
