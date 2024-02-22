@@ -94,7 +94,7 @@ if __name__ == "__main__":
     gamma = .9
     nb_iter = 10
     nb_actions = env.action_space.n
-    S,A,R,S2,D = collect_samples(env, int(1e2))
+    S,A,R,S2,D = collect_samples(env, int(1e4))
     Qfunctions = rf_fqi(S, A, R, S2, D, nb_iter, nb_actions, gamma)
     Qvalue = Qfunctions[-1]
     agent = ProjectAgent(Qvalue)
