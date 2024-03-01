@@ -16,7 +16,7 @@ env = TimeLimit(
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Declare network
+# Declare network 
 state_dim = env.observation_space.shape[0]
 n_action = env.action_space.n
 nb_neurons = 50
