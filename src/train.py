@@ -27,6 +27,8 @@ DQN = torch.nn.Sequential(nn.BatchNorm1d(state_dim),
                           nn.ReLU(),
                           nn.Linear(nb_neurons, nb_neurons),
                           nn.ReLU(),
+                          nn.Linear(nb_neurons, nb_neurons),
+                          nn.ReLU(),
                           nn.Linear(nb_neurons, n_action)).to(device)
 
 
@@ -87,8 +89,11 @@ class ProjectAgent:
     def save(self, path= "model_state_dict.pt"):
         torch.save(self.model.state_dict(), path)
 
-    def load(self):
-        self.model.load_state_dict(torch.load("model_state_dict_DQN_400.pt"))
+    def load(self, path=None):
+        if path is None:
+            self.model.load_state_dict(torch.load("model_state_dict_1200.pt"))
+        else:
+            self.model.load_state_dict(torch.load(path))
         self.model.eval()
 
     def gradient_step(self):
